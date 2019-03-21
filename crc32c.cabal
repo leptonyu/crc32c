@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 447325a4fce2fdb52a54c2063083e05f19300c409ff13032f7d23a046d1d2751
+-- hash: a6ccd4c615b39cf33f94b8ae2307341407669f3f1e58376502016a1bd9d5c3bc
 
 name:           crc32c
 version:        0.0.0
@@ -47,7 +47,9 @@ test-suite crc32c-test
       src
       test
   build-depends:
-      base >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
     , bytestring >=0.10.8.2 && <0.11
     , crc32c
+    , hspec
   default-language: Haskell2010

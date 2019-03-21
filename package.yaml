@@ -31,3 +31,5 @@ tests:
     main: Spec.hs
     dependencies:
       - crc32c
+      - hspec
+      - QuickCheck

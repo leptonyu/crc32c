@@ -15,3 +15,4 @@ crc32c (PS p o l) = fromIntegral $ lib_crc32c_value (unsafeForeignPtrToPtr p `pl
 
 crc32c_update :: Word32 -> ByteString -> Word32
 crc32c_update hash (PS p o l) = fromIntegral $ lib_crc32c_extend (CUInt hash) (unsafeForeignPtrToPtr p `plusPtr` o) (fromIntegral l)
+
