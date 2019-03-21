@@ -1,0 +1,7 @@
+resolver: lts-13.13
+packages:
+- .
+extra-include-dirs:
+  - /usr/local/include
+extra-lib-dirs:
+  - /usr/local/lib

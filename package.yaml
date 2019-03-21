@@ -1,0 +1,33 @@
+name:                crc32c
+version:             0.0.0
+synopsis:            Haskell bindings for crc32c
+# description:
+homepage:            https://github.com/leptonyu/crc32c#readme
+license:             BSD3
+author:              Daniel YU
+maintainer:          leptonyu@gmail.com
+copyright:           (c) Daniel YU
+category:            FFI, Raw
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+  - bytestring >=0.10.8.2 && <0.11
+
+source-dirs: src
+
+library:
+  exposed-modules:
+    - Data.Digest.CRC32C
+  other-modules:
+    - Data.Digest.CRC32C.Internal
+  extra-libraries: crc32c
+  build-tools: c2hs
+
+tests:
+  crc32c-test:
+    source-dirs: test
+    main: Spec.hs
+    dependencies:
+      - crc32c
