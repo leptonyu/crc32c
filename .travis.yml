@@ -3,6 +3,9 @@
 
 language: haskell
 sudo: enabled
+env:
+  - ARCH=x64
+  - ARCH=arm
 
 cache:
   directories:
