@@ -10,26 +10,44 @@ copyright:           (c) Daniel YU
 category:            FFI, Raw
 extra-source-files:
 - README.md
-
-dependencies:
-  - base >= 4.7 && < 5
-  - bytestring >=0.10.8.2 && <0.11
-
-source-dirs: src
+- include/LICENSE
+- include/*.h
+- include/crc32c/*.h
 
 library:
   exposed-modules:
     - Data.Digest.CRC32C
   other-modules:
     - Data.Digest.CRC32C.Internal
-  extra-libraries: crc32c
   build-tools: c2hs
+  extra-libraries: stdc++
+  source-dirs: src
+  dependencies:
+  - base >= 4.7 && < 5
+  - bytestring >=0.10.8.2 && <0.11
+  include-dirs: 
+  - include
+  c-sources:
+  - include/*.cc
+  when:
+  - condition: arch(x86_64)
+    then:
+      cc-options: -std=c++11 -D__HAVE_SSE42=1 -D__HAVE_ARM64_CRC32C=0 -msse4.2
+    else:
+      when:
+      - condition: arch(arm)
+        then:
+          cc-options: -std=c++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=1
+        else:
+          cc-options: -std=c++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=0
 
 tests:
   crc32c-test:
     source-dirs: test
     main: Spec.hs
     dependencies:
-      - crc32c
-      - hspec
-      - QuickCheck
+    - base >= 4.7 && < 5
+    - bytestring >=0.10.8.2 && <0.11
+    - crc32c
+    - hspec
+    - QuickCheck
