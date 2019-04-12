@@ -2,7 +2,6 @@ module Data.Digest.CRC32C.Internal where
 
 #include <crc32c/crc32c.h>
 
-import Data.Word
 import Foreign.C
 import Foreign.Ptr
 
