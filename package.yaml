@@ -32,14 +32,14 @@ library:
   when:
   - condition: arch(x86_64)
     then:
-      cc-options: -std=gnu++11 -D__HAVE_SSE42=1 -D__HAVE_ARM64_CRC32C=0 -msse4.2
+      cc-options: -std=c++11 -D__HAVE_SSE42=1 -D__HAVE_ARM64_CRC32C=0 -msse4.2
     else:
       when:
       - condition: arch(arm)
         then:
-          cc-options: -std=gnu++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=1
+          cc-options: -std=c++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=1
         else:
-          cc-options: -std=gnu++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=0
+          cc-options: -std=c++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=0
 
 tests:
   crc32c-test:

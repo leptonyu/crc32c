@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 508850a53f4a64cbe258ea43cfbb183a4e1a52543abcff8c7a8a4541ef9bd6b0
+-- hash: 90e286fde5d013c853cdb6ad9ef6c03ad8eea828fa98d136baf253d357d78dee
 
 name:           crc32c
 version:        0.0.0
@@ -53,12 +53,12 @@ library
       base >=4.9 && <5
     , bytestring >=0.10.8.2 && <0.11
   if arch(x86_64)
-    cc-options: -std=gnu++11 -D__HAVE_SSE42=1 -D__HAVE_ARM64_CRC32C=0 -msse4.2
+    cc-options: -std=c++11 -D__HAVE_SSE42=1 -D__HAVE_ARM64_CRC32C=0 -msse4.2
   else
     if arch(arm)
-      cc-options: -std=gnu++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=1
+      cc-options: -std=c++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=1
     else
-      cc-options: -std=gnu++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=0
+      cc-options: -std=c++11 -D__HAVE_SSE42=0 -D__HAVE_ARM64_CRC32C=0
   default-language: Haskell2010
 
 test-suite crc32c-test
