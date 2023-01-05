@@ -1,5 +1,5 @@
 name:                crc32c
-version:             0.0.0
+version:             0.1.0
 synopsis:            Haskell bindings for crc32c
 # description:
 homepage:            https://github.com/leptonyu/crc32c#readme
