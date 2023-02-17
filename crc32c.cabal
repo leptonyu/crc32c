@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1a4d90d4e9381a7e6ebad0ead5753fb5d408d10dca3875cc575fa3b9a83becbc
+-- hash: aefc1f6fcf279fc7fb1d71bcf79f62a3334fa0e3f43501844ed6bb3ec3cfbbae
 
 name:           crc32c
-version:        0.1.0
+version:        0.2.0
 synopsis:       Haskell bindings for crc32c
 category:       FFI, Raw
 homepage:       https://github.com/leptonyu/crc32c#readme
@@ -21,7 +21,7 @@ extra-source-files:
     README.md
     include/LICENSE
     include/crc32c_arm64.h
-    include/crc32c_arm64_linux_check.h
+    include/crc32c_arm64_check.h
     include/crc32c_internal.h
     include/crc32c_prefetch.h
     include/crc32c_read_le.h
@@ -71,7 +71,7 @@ test-suite crc32c-test
   build-depends:
       QuickCheck
     , base >=4.9 && <5
-    , bytestring >=0.10.8.2 && <0.11
+    , bytestring >=0.10.8.2 && <0.12
     , crc32c
     , hspec
     , hspec-core

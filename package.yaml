@@ -1,5 +1,5 @@
 name:                crc32c
-version:             0.1.0
+version:             0.2.0
 synopsis:            Haskell bindings for crc32c
 # description:
 homepage:            https://github.com/leptonyu/crc32c#readme
@@ -47,7 +47,7 @@ tests:
     main: Spec.hs
     dependencies:
     - base >= 4.9 && < 5
-    - bytestring >=0.10.8.2 && <0.11
+    - bytestring >=0.10.8.2 && <0.12
     - crc32c
     - hspec
     - hspec-core
