@@ -1,4 +1,4 @@
-cabal-version: 1.12
+cabal-version: 2.2
 
 -- This file has been generated from package.yaml by hpack version 0.35.1.
 --
@@ -14,7 +14,7 @@ homepage:       https://github.com/leptonyu/crc32c#readme
 author:         Daniel YU
 maintainer:     leptonyu@gmail.com
 copyright:      (c) Daniel YU
-license:        BSD3
+license:        BSD-3-Clause
 license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
