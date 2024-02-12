@@ -36,6 +36,11 @@ library
       Data.Digest.CRC32C
   hs-source-dirs:
       src
+  build-depends:
+      base >=4.9 && <5
+    , bytestring >=0.10.8.2
+  default-language: Haskell2010
+
   include-dirs:
       include
   cxx-sources:
@@ -45,17 +50,11 @@ library
       include/crc32c_sse42.cc
   extra-libraries:
       stdc++
-  build-depends:
-      base >=4.9 && <5
-    , bytestring >=0.10.8.2
-  default-language: Haskell2010
+  cxx-options: -std=c++11
   if arch(x86_64)
-    cxx-options: -std=c++11 -DHAVE_SSE42=1 -DHAVE_ARM64_CRC32C=0 -msse4.2
-  else
-    if arch(arm)
-      cxx-options: -std=c++11 -DHAVE_SSE42=0 -DHAVE_ARM64_CRC32C=1
-    else
-      cxx-options: -std=c++11 -DHAVE_SSE42=0 -DHAVE_ARM64_CRC32C=0
+    cxx-options: -DHAVE_SSE42=1 -msse4.2
+  if arch(arm)
+    cxx-options: -DHAVE_ARM64_CRC32C=1
 
 test-suite crc32c-test
   type: exitcode-stdio-1.0
