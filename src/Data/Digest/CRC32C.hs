@@ -25,8 +25,8 @@ crc32c_update hash bs =
       unsafeUseAsCStringLen bs $ \(p, l) ->
         lib_crc32c_extend (fromIntegral hash) (castPtr p) (fromIntegral l)
 
-foreign import ccall "crc32c/crc32c.h crc32c_extend"
+foreign import ccall unsafe "crc32c/crc32c.h crc32c_extend"
   lib_crc32c_extend :: CUInt -> Ptr CUChar -> CSize -> IO CUInt
 
-foreign import ccall "crc32c/crc32c.h crc32c_value"
+foreign import ccall unsafe "crc32c/crc32c.h crc32c_value"
   lib_crc32c_value :: Ptr CUChar -> CSize -> IO CUInt
