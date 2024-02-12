@@ -60,8 +60,6 @@ library
 test-suite crc32c-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
-  other-modules:
-      Paths_crc32c
   hs-source-dirs:
       test
   build-depends:
