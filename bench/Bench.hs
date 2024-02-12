@@ -11,10 +11,13 @@ import           Data.Digest.CRC32C
 main =
   defaultMain [
     env (pure (largeByteString (2^8) 42)) $ \bs ->
-    bench "crc32c small" $ whnf crc32c bs
+    bench "crc32c small (2^8)" $ whnf crc32c bs
 
   , env (pure (largeByteString (2^16) 42)) $ \bs ->
-    bench "crc32c large" $ whnf crc32c bs
+    bench "crc32c large (2^16)" $ whnf crc32c bs
+
+  , env (pure (largeByteString (2^16+1) 42)) $ \bs ->
+    bench "crc32c large (2^16+1)" $ whnf crc32c bs
   ]
 
 largeByteString :: Int -> Word -> ByteString
