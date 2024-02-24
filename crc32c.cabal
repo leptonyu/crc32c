@@ -1,14 +1,9 @@
 cabal-version: 2.2
 
--- This file has been generated from package.yaml by hpack version 0.35.1.
---
--- see: https://github.com/sol/hpack
---
--- hash: aefc1f6fcf279fc7fb1d71bcf79f62a3334fa0e3f43501844ed6bb3ec3cfbbae
-
 name:           crc32c
 version:        0.2.0
-synopsis:       Haskell bindings for crc32c
+description:    Haskell bindings for crc32c
+synopsis:       crc32c
 category:       FFI, Raw
 homepage:       https://github.com/leptonyu/crc32c#readme
 author:         Daniel YU
@@ -19,6 +14,7 @@ license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
+    ChangeLog.md
     include/LICENSE
     include/crc32c_arm64.h
     include/crc32c_arm64_check.h
@@ -38,7 +34,7 @@ library
       src
   build-depends:
       base >=4.9 && <5
-    , bytestring >=0.10.8.2
+    , bytestring >=0.11.5
   default-language: Haskell2010
 
   include-dirs:
