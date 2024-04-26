@@ -12,7 +12,9 @@
 #define HAVE_BUILTIN_PREFETCH 1
 
 // Define to 1 if targeting X86 and the compiler has the _mm_prefetch intrinsic.
+#if (defined(_M_X64) || defined(__x86_64__))
 #define HAVE_MM_PREFETCH 1
+#endif
 
 // Define to 1 if the system libraries have the getauxval function in the
 // <sys/auxv.h> header. Should be true on Linux and Android API level 20+.
