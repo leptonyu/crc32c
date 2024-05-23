@@ -44,9 +44,12 @@ library
       include/crc32c_arm64.cc
       include/crc32c_portable.cc
       include/crc32c_sse42.cc
-  extra-libraries:
-      stdc++
   cxx-options: -std=c++11
+  if impl(ghc >= 9.4)
+    build-depends: system-cxx-std-lib
+  else
+    extra-libraries:
+      stdc++
   if (arch(x86_64) && !os(windows))
     cxx-options: -DHAVE_SSE42=1 -msse4.2
   if arch(arm)
