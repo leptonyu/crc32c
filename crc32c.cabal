@@ -1,7 +1,7 @@
 cabal-version: 2.2
 
 name:           crc32c
-version:        0.2.1
+version:        0.2.2
 description:    Haskell bindings for crc32c
 synopsis:       crc32c
 category:       FFI, Raw

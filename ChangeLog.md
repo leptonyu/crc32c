@@ -1,3 +1,10 @@
+0.2.2
+---
+
+- Use system-cxx-std-lib for specifying C++ linkage
+
+
+
 0.2.1
 ---
 
